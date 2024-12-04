@@ -17,6 +17,6 @@ namespace LabaRRP_BattleShip
             InitializeComponent();
         }
 
-        public void 
+       
     }
 }
