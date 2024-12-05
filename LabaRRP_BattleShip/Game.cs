@@ -35,9 +35,9 @@ namespace BattleShipGame.Core
             IsPlayer1Turn = !IsPlayer1Turn;
         }
 
-        //public bool IsGameOver()
-       // {
-         //   return 
-        //}
+        public bool IsGameOver()
+       {
+            return Player1.Ships.All(s => s.IsSunk) || Player2.Ships.All(s => s.IsSunk);
+        }
     }
 }
