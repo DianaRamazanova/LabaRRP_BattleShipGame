@@ -1,5 +1,6 @@
 ﻿using LabaRRP_BattleShip;
 using System;
+using System.Linq;
 
 namespace BattleShipGame.Core
 {
@@ -18,6 +19,20 @@ namespace BattleShipGame.Core
 
         public void MakeMove(int x, int y)
         {
+            //ход
+            Player opponent = IsPlayer1Turn ? Player2 : Player1;
+            Cell cell = opponent.Grid[x, y];
+            if (cell.IsOccupied)
+            {
+                cell.IsHit = true;
+                // проверка утопленного корабля
+                Ship ship = opponent.Ships.FirstOrDefault(s => s.Cells.Contains(cell));
+                if (ship != null && ship.Cells.All(c => c.IsHit))
+                {
+                    ship.IsSunk = true;
+                }
+            }
+            IsPlayer1Turn = !IsPlayer1Turn;
         }
 
         //public bool IsGameOver()
