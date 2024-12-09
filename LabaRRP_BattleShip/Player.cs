@@ -10,12 +10,15 @@ namespace LabaRRP_BattleShip
     {
         public Cell[,] Grid { get; set; }
         public List<Ship> Ships { get; set; }
+        public string Name { get; set; }
+        public int Score { get; set; }
 
         public Player()
         {
             Grid = new Cell[10, 10];
             Ships = new List<Ship>();
             InitializeGrid();
+            Score = 0;
         }
 
         private void InitializeGrid()
@@ -38,6 +41,7 @@ namespace LabaRRP_BattleShip
                 int newY = isVertical ? y + i : y;
                 Grid[newX, newY].IsOccupied = true;
                 ship.Cells.Add(Grid[newX, newY]);
+
             }
             Ships.Add(ship);
         }
