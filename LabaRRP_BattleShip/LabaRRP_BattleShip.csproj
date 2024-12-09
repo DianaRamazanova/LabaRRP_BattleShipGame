@@ -60,6 +60,7 @@
     <Compile Include="GameoverForm.Designer.cs">
       <DependentUpon>GameoverForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leaderboard.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
