@@ -1,68 +1,42 @@
-﻿using System;
+﻿using LabaRRP_BattleShip;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipGame.Core
+namespace BattleShipGame
 {
-    class leaderboard
+    public class Leaderboard
     {
-        public class Player
+        private const string LeaderboardFile = @"C:\Users\понини\LabaRRP_BattleShipGame";
+
+        public List<Player> GetTopPlayers()
         {
-            public int PlayerId { get; set; }
-            public string PlayerName { get; set; }
-            public List<PlayerScore> PlayerScores { get; set; }
+            if (!File.Exists(LeaderboardFile))
+            {
+                return new List<Player>();
+            }
+
+            var lines = File.ReadAllLines(LeaderboardFile);
+            var players = lines.Select(line =>
+            {
+                var parts = line.Split(',');
+                return new Player { Name = parts[0], Score = int.Parse(parts[1]) };
+            }).ToList();
+
+            return players.OrderByDescending(p => p.Score).Take(10).ToList();
         }
 
-        public class Match
+        public void AddPlayer(Player player)
         {
-            public int MatchId { get; set; }
-            public DateTime MatchStartDate { get; set; }
-            public DateTime? MatchEndDate { get; set; }
-            public List<Step> Steps { get; set; }
-            public List<Ship> Ships { get; set; }
-            public List<PlayerScore> PlayerScores { get; set; }
-        }
+            var players = GetTopPlayers();
+            players.Add(player);
+            players = players.OrderByDescending(p => p.Score).Take(10).ToList();
 
-        public class Step
-        {
-            public int StepId { get; set; }
-            public int MatchId { get; set; }
-            public Match Match { get; set; }
-            public int PlayerId { get; set; }
-            public Player Player { get; set; }
-            public string AttackPlace { get; set; }
-            public string AttackResult { get; set; }
+            var lines = players.Select(p => $"{p.Name},{p.Score}").ToList();
+            File.WriteAllLines(LeaderboardFile, lines);
         }
-
-        public class Ship
-        {
-            public int ShipId { get; set; }
-            public int MatchId { get; set; }
-            public Match Match { get; set; }
-            public int PlayerId { get; set; }
-            public Player Player { get; set; }
-            public int ShipLength { get; set; }
-            public bool IsSunk { get; set; }
-            public List<Cell> Cells { get; set; }
-        }
-
-        public class Cell
-        {
-            public int CellId { get; set; }
-            public int ShipId { get; set; }
-            public Ship Ship { get; set; }
-            public int CellX { get; set; }
-            public int CellY { get; set; }
-            public bool IsHit { get; set; }
-        }
-
-        public class PlayerScore
-        {
-            public int PlayerId { get; set; }
-            public Player Player { get; set; }
-            public int MatchId { get; set; }
-            public Match Match { get; set; }
-            public int Score { get; set; }
-        }
+    }
+}
