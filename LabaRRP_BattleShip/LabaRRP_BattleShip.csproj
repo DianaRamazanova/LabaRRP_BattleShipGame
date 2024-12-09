@@ -54,12 +54,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="GameoverForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameoverForm.Designer.cs">
-      <DependentUpon>GameoverForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Leaderboard.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
