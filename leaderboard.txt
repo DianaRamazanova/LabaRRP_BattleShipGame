@@ -1,8 +1,7 @@
-﻿using LabaRRP_BattleShip;
+using LabaRRP_BattleShip;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +9,7 @@ namespace BattleShipGame
 {
     public class Leaderboard
     {
-        private const string LeaderboardFile = @"C:\Users\понини\LabaRRP_BattleShipGame";
+        private const string LeaderboardFile = @"C:\Users\user\Source\Repos\LabaRRP_BattleShipGame\leaderboard.txt";
 
         public List<Player> GetTopPlayers()
         {
