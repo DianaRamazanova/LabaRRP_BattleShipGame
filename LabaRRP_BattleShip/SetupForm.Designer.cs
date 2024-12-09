@@ -28,12 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pnlGrid = new System.Windows.Forms.Panel();
+            this.btnDone = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Location = new System.Drawing.Point(12, 12);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(300, 300);
+            this.pnlGrid.TabIndex = 0;
+            // 
+            // btnDone
+            // 
+            this.btnDone.Location = new System.Drawing.Point(12, 318);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 1;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
+            // SetupForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(324, 351);
+            this.Controls.Add(this.btnDone);
+            this.Controls.Add(this.pnlGrid);
+            this.Name = "SetupForm";
             this.Text = "SetupForm";
+            this.ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlGrid;
+        private System.Windows.Forms.Button btnDone;
     }
 }
