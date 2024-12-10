@@ -1,8 +1,7 @@
-﻿using LabaRRP_BattleShip;
-using System;
+﻿using System;
 using System.Linq;
 
-namespace BattleShipGame.Core
+namespace LabaRRP_BattleShip
 {
     public class Game
     {
