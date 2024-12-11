@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="ClientServer\Client.cs" />
+    <Compile Include="ClientServer\Messege.cs" />
     <Compile Include="ClientServer\Server.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
