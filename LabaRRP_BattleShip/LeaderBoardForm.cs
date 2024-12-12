@@ -20,7 +20,6 @@ namespace LabaRRP_BattleShip
 
         private void LoadLeaderboard()
         {
-            // Load leaderboard from file
             Leaderboard leaderboard = new Leaderboard();
             var topPlayers = leaderboard.GetTopPlayers();
             lstLeaderboard.Items.Clear();

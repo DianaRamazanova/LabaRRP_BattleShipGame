@@ -42,7 +42,7 @@
             this.btnStartGame.TabIndex = 0;
             this.btnStartGame.Text = "Start Game";
             this.btnStartGame.UseVisualStyleBackColor = true;
-            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            this.btnStartGame.Click += new System.EventHandler(this.BtnStartGame_Click);
             // 
             // btnConnect
             // 
@@ -52,7 +52,7 @@
             this.btnConnect.TabIndex = 1;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.btnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
             // txtIPAddress
             // 
@@ -70,7 +70,7 @@
             this.btnLeaderboard.TabIndex = 3;
             this.btnLeaderboard.Text = "Leaderboard";
             this.btnLeaderboard.UseVisualStyleBackColor = true;
-            this.btnLeaderboard.Click += new System.EventHandler(this.btnLeaderboard_Click);
+            this.btnLeaderboard.Click += new System.EventHandler(this.BtnLeaderboard_Click);
             // 
             // MainForm
             // 

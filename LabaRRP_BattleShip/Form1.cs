@@ -19,7 +19,7 @@ namespace LabaRRP_BattleShip
         {
             InitializeComponent();
         }
-        private void btnStartGame_Click(object sender, EventArgs e)
+        private void BtnStartGame_Click(object sender, EventArgs e)
         {
             _client = new Client();
             _game = new Game();
@@ -27,7 +27,7 @@ namespace LabaRRP_BattleShip
             setupForm.ShowDialog();
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        private void BtnConnect_Click(object sender, EventArgs e)
         {
             _client.Connect(txtIPAddress.Text);
             _game = new Game();
@@ -35,9 +35,9 @@ namespace LabaRRP_BattleShip
             setupForm.ShowDialog();
         }
 
-        private void btnLeaderboard_Click(object sender, EventArgs e)
+        private void BtnLeaderboard_Click(object sender, EventArgs e)
         {
-            LeaderboardForm leaderboardForm = new LeaderboardForm();
+            LeaderBoardForm leaderboardForm = new LeaderBoardForm();
             leaderboardForm.ShowDialog();
         }
     }
