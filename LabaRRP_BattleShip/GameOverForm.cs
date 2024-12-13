@@ -12,7 +12,7 @@ namespace LabaRRP_BattleShip
 {
     public partial class GameOverForm : Form
     {
-        private Player _player;
+        private readonly Player _player;
 
         public GameOverForm(string result, Player player)
         {
