@@ -38,14 +38,22 @@ namespace LabaRRP_BattleShip
         {
             Button btn = sender as Button;
             Point cell = (Point)btn.Tag;
-            _game.Player1.PlaceShip(new Ship(4), cell.X, cell.Y, true);
-            btn.BackColor = Color.Blue;
+
+            bool isPlaced = _game.Player1.PlaceShip(new Ship(4), cell.X, cell.Y, true);
+
+            if (isPlaced)
+            {
+                btn.BackColor = Color.Blue;
+            }
+            else
+            {
+                MessageBox.Show("Невозможно разместить корабль на этой позиции. Попробуйте другую.");
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }
