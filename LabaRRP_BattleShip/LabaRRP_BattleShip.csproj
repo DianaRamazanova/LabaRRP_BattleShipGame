@@ -70,6 +70,7 @@
     <Compile Include="LeaderBoardForm.Designer.cs">
       <DependentUpon>LeaderBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlacementRules.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
