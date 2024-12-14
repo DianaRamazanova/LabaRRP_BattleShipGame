@@ -39,11 +39,15 @@ namespace LabaRRP_BattleShip
             Button btn = sender as Button;
             Point cell = (Point)btn.Tag;
 
-            bool isPlaced = _game.Player1.PlaceShip(new Ship(4), cell.X, cell.Y, true);
+            int shipLength = 4; 
+            bool isVertical = true; 
+
+            // Попытка разместить корабль
+            bool isPlaced = _game.Player1.PlaceShip(new Ship(shipLength), cell.X, cell.Y, isVertical);
 
             if (isPlaced)
             {
-                btn.BackColor = Color.Blue;
+                btn.BackColor = Color.Blue; // Успешное размещение
             }
             else
             {

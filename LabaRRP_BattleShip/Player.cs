@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LabaRRP_BattleShip
 {
@@ -13,11 +10,14 @@ namespace LabaRRP_BattleShip
         public string Name { get; set; }
         public int Score { get; set; }
 
+        private readonly PlacementRules _placementRules;
+
         public Player()
         {
             Grid = new Cell[10, 10];
             Ships = new List<Ship>();
             InitializeGrid();
+            _placementRules = new PlacementRules(Grid);
             Score = 0;
         }
 
@@ -32,18 +32,14 @@ namespace LabaRRP_BattleShip
             }
         }
 
-        public void PlaceShip(Ship ship, int x, int y, bool isVertical)
+        public bool PlaceShip(Ship ship, int x, int y, bool isVertical)
         {
-            ship.Cells = new List<Cell>();
-            for (int i = 0; i < ship.Length; i++)
+            bool isPlaced = _placementRules.PlaceShip(ship, x, y, isVertical);
+            if (isPlaced)
             {
-                int newX = isVertical ? x : x + i;
-                int newY = isVertical ? y + i : y;
-                Grid[newX, newY].IsOccupied = true;
-                ship.Cells.Add(Grid[newX, newY]);
-
+                Ships.Add(ship);
             }
-            Ships.Add(ship);
+            return isPlaced;
         }
     }
 }

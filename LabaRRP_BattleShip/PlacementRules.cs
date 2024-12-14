@@ -6,8 +6,8 @@ namespace LabaRRP_BattleShip
     public class PlacementRules
     {
         private const int GridSize = 10;
-        private Cell[,] _grid;
-        private List<Ship> _ships;
+        private readonly  Cell[,] _grid;
+        private readonly List<Ship> _ships;
 
         private int _oneDeckCount = 0;
         private int _twoDeckCount = 0;
