@@ -26,39 +26,56 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+
+        private System.Windows.Forms.Label lblFourDeck;
+        private System.Windows.Forms.Label lblThreeDeck;
+        private System.Windows.Forms.Label lblTwoDeck;
+        private System.Windows.Forms.Label lblOneDeck;
         private void InitializeComponent()
         {
-            this.pnlGrid = new System.Windows.Forms.Panel();
-            this.btnDone = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Location = new System.Drawing.Point(12, 12);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(300, 300);
-            this.pnlGrid.TabIndex = 0;
-            // 
-            // btnDone
-            // 
-            this.btnDone.Location = new System.Drawing.Point(12, 318);
-            this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(75, 23);
-            this.btnDone.TabIndex = 1;
-            this.btnDone.Text = "Done";
-            this.btnDone.UseVisualStyleBackColor = true;
-            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
-            // 
-            // SetupForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 351);
-            this.Controls.Add(this.btnDone);
-            this.Controls.Add(this.pnlGrid);
-            this.Name = "SetupForm";
-            this.Text = "SetupForm";
-            this.ResumeLayout(false);
+            this.lblFourDeck = new System.Windows.Forms.Label();
+            this.lblThreeDeck = new System.Windows.Forms.Label();
+            this.lblTwoDeck = new System.Windows.Forms.Label();
+            this.lblOneDeck = new System.Windows.Forms.Label();
+
+            // lblFourDeck
+            this.lblFourDeck.AutoSize = true;
+            this.lblFourDeck.Location = new System.Drawing.Point(12, 350);
+            this.lblFourDeck.Name = "lblFourDeck";
+            this.lblFourDeck.Size = new System.Drawing.Size(130, 13);
+            this.lblFourDeck.TabIndex = 3;
+            this.lblFourDeck.Text = "Четырехпалубных: 1";
+
+            // lblThreeDeck
+            this.lblThreeDeck.AutoSize = true;
+            this.lblThreeDeck.Location = new System.Drawing.Point(12, 370);
+            this.lblThreeDeck.Name = "lblThreeDeck";
+            this.lblThreeDeck.Size = new System.Drawing.Size(120, 13);
+            this.lblThreeDeck.TabIndex = 4;
+            this.lblThreeDeck.Text = "Трехпалубных: 2";
+
+            // lblTwoDeck
+            this.lblTwoDeck.AutoSize = true;
+            this.lblTwoDeck.Location = new System.Drawing.Point(12, 390);
+            this.lblTwoDeck.Name = "lblTwoDeck";
+            this.lblTwoDeck.Size = new System.Drawing.Size(110, 13);
+            this.lblTwoDeck.TabIndex = 5;
+            this.lblTwoDeck.Text = "Двухпалубных: 3";
+
+            // lblOneDeck
+            this.lblOneDeck.AutoSize = true;
+            this.lblOneDeck.Location = new System.Drawing.Point(12, 410);
+            this.lblOneDeck.Name = "lblOneDeck";
+            this.lblOneDeck.Size = new System.Drawing.Size(100, 13);
+            this.lblOneDeck.TabIndex = 6;
+            this.lblOneDeck.Text = "Однопалубных: 4";
+
+            // Добавление элементов на форму
+            this.Controls.Add(this.lblFourDeck);
+            this.Controls.Add(this.lblThreeDeck);
+            this.Controls.Add(this.lblTwoDeck);
+            this.Controls.Add(this.lblOneDeck);
         }
 
         #endregion

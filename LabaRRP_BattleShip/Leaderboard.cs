@@ -9,7 +9,8 @@ namespace LabaRRP_BattleShip
 {
     public class Leaderboard
     {
-        private const string LeaderboardFile = @"C:\Users\понини\LabaRRP_BattleShipGame";
+        //private const string LeaderboardFile = @"C:\Users\понини\LabaRRP_BattleShipGame";
+        private const string LeaderboardFile = @"C:\Users\user\Desktop\databaseForGame.txt";
 
         public List<Player> GetTopPlayers()
         {

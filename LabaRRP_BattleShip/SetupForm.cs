@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LabaRRP_BattleShip
@@ -13,12 +7,17 @@ namespace LabaRRP_BattleShip
     public partial class SetupForm : Form
     {
         private Game _game;
+        private int _shipLength = 4;
+        private bool _isVertical = true;
+
         public SetupForm(Game game)
         {
             InitializeComponent();
             _game = game;
             InitializeGrid();
+            InitializeControls();
         }
+
         private void InitializeGrid()
         {
             for (int i = 0; i < 10; i++)
@@ -34,28 +33,54 @@ namespace LabaRRP_BattleShip
                 }
             }
         }
+
+        private void InitializeControls()
+        {
+            ComboBox comboBoxShipSize = new ComboBox();
+            comboBoxShipSize.Items.AddRange(new object[] { 1, 2, 3, 4 });
+            comboBoxShipSize.SelectedIndex = 0;
+            comboBoxShipSize.Location = new Point(320, 10);
+            comboBoxShipSize.SelectedIndexChanged += (sender, e) =>
+            {
+                _shipLength = (int)comboBoxShipSize.SelectedItem;
+            };
+            this.Controls.Add(comboBoxShipSize);
+
+            ComboBox comboBoxOrientation = new ComboBox();
+            comboBoxOrientation.Items.AddRange(new object[] { "Горизонтально", "Вертикально" });
+            comboBoxOrientation.SelectedIndex = 0;
+            comboBoxOrientation.Location = new Point(320, 50);
+            comboBoxOrientation.SelectedIndexChanged += (sender, e) =>
+            {
+                _isVertical = comboBoxOrientation.SelectedIndex == 1;
+            };
+            this.Controls.Add(comboBoxOrientation);
+
+            Button btnDone = new Button();
+            btnDone.Text = "Готово";
+            btnDone.Location = new Point(320, 90);
+            btnDone.Click += BtnDone_Click;
+            this.Controls.Add(btnDone);
+        }
+
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             Point cell = (Point)btn.Tag;
 
-            int shipLength = 4; 
-            bool isVertical = true; 
-
-            // Попытка разместить корабль
-            bool isPlaced = _game.Player1.PlaceShip(new Ship(shipLength), cell.X, cell.Y, isVertical);
+            bool isPlaced = _game.Player1.PlaceShip(new Ship(_shipLength), cell.X, cell.Y, _isVertical);
 
             if (isPlaced)
             {
-                btn.BackColor = Color.Blue; // Успешное размещение
+                btn.BackColor = Color.Blue;
             }
             else
             {
-                MessageBox.Show("Невозможно разместить корабль на этой позиции. Попробуйте другую.");
+                MessageBox.Show("Невозможно разместить корабль на этой позиции.");
             }
         }
 
-        private void btnDone_Click(object sender, EventArgs e)
+        private void BtnDone_Click(object sender, EventArgs e)
         {
             this.Close();
         }

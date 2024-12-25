@@ -18,24 +18,20 @@ namespace LabaRRP_BattleShip
 
         public void MakeMove(int x, int y)
         {
-            //ход
             Player opponent = IsPlayer1Turn ? Player2 : Player1;
-            Cell cell = opponent.Grid[x, y];
-            if (cell.IsOccupied)
+            bool hit = opponent.CheckHit(x, y);
+            if (hit)
             {
-                cell.IsHit = true;
-                // проверка утопленного корабля
-                Ship ship = opponent.Ships.FirstOrDefault(s => s.Cells.Contains(cell));
-                if (ship != null && ship.Cells.All(c => c.IsHit))
+                if (opponent.Ships.All(s => s.IsSunk))
                 {
-                    ship.IsSunk = true;
+                    IsGameOver();
                 }
             }
             IsPlayer1Turn = !IsPlayer1Turn;
         }
 
         public bool IsGameOver()
-       {
+        {
             return Player1.Ships.All(s => s.IsSunk) || Player2.Ships.All(s => s.IsSunk);
         }
     }

@@ -34,12 +34,31 @@ namespace LabaRRP_BattleShip
 
         public bool PlaceShip(Ship ship, int x, int y, bool isVertical)
         {
-            bool isPlaced = _placementRules.PlaceShip(ship, x, y, isVertical);
-            if (isPlaced)
+            return _placementRules.PlaceShip(ship, x, y, isVertical);
+        }
+
+        public bool CheckHit(int x, int y)
+        {
+            if (Grid[x, y].IsOccupied)
             {
-                Ships.Add(ship);
+                Grid[x, y].IsHit = true;
+                foreach (var ship in Ships)
+                {
+                    if (ship.Cells.Contains(Grid[x, y]))
+                    {
+                        if (ship.Cells.TrueForAll(c => c.IsHit))
+                        {
+                            ship.IsSunk = true;
+                        }
+                        return true;
+                    }
+                }
             }
-            return isPlaced;
+            else
+            {
+                Grid[x, y].IsHit = true;
+            }
+            return false;
         }
     }
 }
